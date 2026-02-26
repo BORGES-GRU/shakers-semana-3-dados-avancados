@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "lp_lotion_PW7nN8": {
+      "type": "metaobject-slider",
+      "name": "LP Lotion",
+      "settings": {
+        "text": "",
+        "product": "freshy-skin",
+        "collection": "produtos-de-locao"
+      }
+    }
+  },
+  "order": [
+    "lp_lotion_PW7nN8"
+  ]
+}
