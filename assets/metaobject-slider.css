@@ -1,0 +1,32 @@
+.metaobject-slider-wrapper {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mySwiper {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.card {
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-top: 10px;
+}

@@ -1,57 +1,53 @@
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+{{ "metaobject-slider.css" | asset_url | stylesheet_tag }}
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
-<div class="swiper">
-  
-  <div class="swiper-wrapper">
+{%- assign selected_handle = section.settings.selected_product -%}
+{%- assign main_product = all_products[selected_handle] -%}
+
+<div class="metaobject-slider-wrapper">
+  {%- if main_product != blank -%}
     
-    <div class="swiper-slide">Slide 1</div>
-    <div class="swiper-slide">Slide 2</div>
-    <div class="swiper-slide">Slide 3</div>
-    ...
-  </div>
- 
-  <div class="swiper-pagination"></div>
+    {%- assign slider_entries = main_product.metafields.custom.related_products_with_banner.value -%}
 
-  
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
+    <h2 class="slider-title">{{ section.settings.title }}</h2>
 
-  
-  <div class="swiper-scrollbar"></div>
+    {%- if slider_entries != blank -%}
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          
+          {% for product_with_banner in list_products %}
+           {% assign banner = product_with_banner.banner %}
+           {%assign product_b_handle = product_with_banner.produto %}
+           {% assign product_b = all_products[product_b_handle] %}
+           <div class="swiper-slide">
+            <img src="{{banner | image_url: width: '300px'}}" width="300px" heigth="auto">
+            <h2><product_b class="title">FRESHY SKIN</product_b></h2>
+          {% endfor %}
+          
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    {%- else -%}
+ {%- endif -%}
+
+  {%- else -%}
+    <p style="text-align: center;">Por favor, selecione um produto no menu lateral do Editor.</p>
+  {%- endif -%}
 </div>
 
-<style>
-    .swiper {
-  width: 600px;
-  height: 300px;
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+<script src="{{ 'metaobject-slider.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Metaobject Slider",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Destaques" },
+    { "type": "product", "id": "selected_product", "label": "Produto Base" }
+  ],
+  "presets": [{ "name": "Metaobject Slider" }]
 }
-</style>
-
-<script>
-    const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'vertical',
-  loop: true,
-
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
-});
-</script>
+{% endschema %}
