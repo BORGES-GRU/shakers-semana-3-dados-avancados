@@ -43,4 +43,4 @@ Neste desafio, criei uma Section dinâmica de Slider que consome dados de um Met
 - **Git** (Fluxo de branches e Conventional Commits)
 
 ## 🔗 Link do Projeto
-- **Vídeo de Demonstração:** [COLOCA_AQUI_O_LINK_DO_TEU_VIDEO]
+- **Vídeo de Demonstração:** https://drive.google.com/file/d/1q8ikkRRT76jqfF9HB30Csw79JhhllOC_/view?usp=sharing
