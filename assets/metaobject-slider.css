@@ -4,29 +4,23 @@
   margin: 0 auto;
 }
 
-.mySwiper {
+.metaobject-slider-wrapper .mySwiper {
   width: 100%;
   padding-bottom: 50px;
 }
 
-.card {
-  text-align: center;
-  border: 1px solid #eee;
-  padding: 15px;
-  border-radius: 8px;
+.metaobject-slider-wrapper .mySwiper .swiper-button-next,
+.metaobject-slider-wrapper .mySwiper .swiper-button-prev{
+  color: #6a6a6a;
 }
 
-.card img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
+.metaobject-slider-wrapper .mySwiper .swiper-pagination-bullet-active{
+  background: #6a6a6a;
 }
 
-.btn {
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
+.metaobject-slider-wrapper .mySwiper .title{
+  font-size: 22px;
   margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
 }

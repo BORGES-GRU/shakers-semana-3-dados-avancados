@@ -1,6 +1,5 @@
-// @ts-nocheck
-
 const initSwiper = () => {
+  console.log('Inicializando Swiper...');
   const swiperElement = document.querySelector('.mySwiper');
 
  if (swiperElement && typeof Swiper !== 'undefined') {
@@ -15,10 +14,6 @@ const initSwiper = () => {
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
-      },
-      breakpoints: {
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 }
       }
     });
   } else {
@@ -27,7 +22,4 @@ const initSwiper = () => {
 }
 
 document.addEventListener('DOMContentLoaded', initSwiper);
-
-window.addEventListener('load', initSwiper);
-
 document.addEventListener('shopify:section:load', initSwiper);
