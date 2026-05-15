@@ -1,0 +1,36 @@
+{% assign my_variable = "UMA MARCA VOLTADA PARA SEU BEM-ESTAR" %}
+{{ my_variable }}
+
+<img src="{{ 'pure_balance_wellness.jpg' | asset_url }}" width="40" height="40" alt="{{ my_variable }}">
+
+{% for product in collection.products %}
+   <p>{{ forloop.index }} - {{product.title}}</p>
+      <ul> 
+            {% for tag in product.tags  %}
+             <li>{{ tag }}</li>
+            {% endfor  %}
+        </ul>
+
+{% endfor %}
+
+{% if product.available %}
+    <p>{{ product.title }} esta disponivel</p>
+{%  else %}
+    <p>{{ product.title }} não esta disponivel</p>
+{% endif %}
+
+{% comment %} --- MENU PRINCIPAL --- {% endcomment %}
+<h2>{{ linklists['main-menu'].title }}</h2>
+<ul>
+    {% for link in linklists['main-menu'].links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+    {% endfor %}
+</ul>
+
+{% comment %} --- MENU RODAPÉ --- {% endcomment %}
+<h2>{{ linklists['footer'].title }}</h2>
+<ul>
+    {% for link in linklists['footer'].links %} {% comment %} Adicionado 's' em links {% endcomment %}
+        <li>{{ link.title | link_to: link.url }}</li>
+    {% endfor %}    
+</ul>

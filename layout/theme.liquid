@@ -44,6 +44,7 @@
       {% sections 'header-group' %}
     </div>
 
+  <h1>O SNIPPET CARREGOU!</h1>
     <script>
       // Inline header height and menu style calculations to prevent layout shift
       // Note: Updates in calculateHeaderGroupHeight(), updateTransparentHeaderOffset() and setHeaderMenuStyle() utilities.js should be kept in sync with this function
@@ -114,6 +115,8 @@
       data-template="{{ template }}"
     >
       {{ content_for_layout }}
+      {% render 'testes'%}
+
     </main>
 
     {% sections 'footer-group' %}
